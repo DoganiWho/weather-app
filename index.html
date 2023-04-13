@@ -2,12 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="style.css">
+    <title>JS Weather App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <header class="header">
+      <div class="header-left">
+        <img src="./public/icons/sun.svg" alt="weather-icon" class="weather-icon large" data-current-icon>
+        <div class="header-current-temp">
+          <span data-current-temp>6</span>&deg;
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="info-group">
+          <div class="label">High</div>
+          <div><span data-current-high>10</span>&deg;</div>
+        </div>
+      </div>
+      <div class="info-group">
+          <div class="label">FL High</div>
+          <div><span data-current-fl-high>10</span>&deg;</div>
+        </div>
+      </div>
+     <div class="info-group">
+          <div class="label">Wind</div>
+          <div>
+            <span data-current-wind>10</span>
+            <span class="value-sub-info">m/s</span>
+          </div>
+        </div>
+      </div>  <div class="info-group">
+        <div class="label">Low</div>
+        <div><span data-current-low>10</span>&deg;</div>
+      </div>
+    </div><div class="info-group">
+      <div class="label">FL low</div>
+      <div><span data-current-fl-low>10</span>&deg;</div>
+    </div>
+  </div><div class="info-group">
+    <div class="label">Precip</div>
+    <div>
+      <span data-current-precip>0.1</span>
+      <span class="values-sub-info">cm</span>
+    </div>
+  </div>
+</div>
+    </header>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
