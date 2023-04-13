@@ -9,5 +9,16 @@ export function getWeather (lat, lon, timezone) {
             longitude: lon, 
             timezone,
         }
+    }).then(({data}) => {
+        return {
+            current: parseCurrentWeather(data), 
+            daily: parseDailyWeather(data),
+            hourly: parseHourlyWeather(data),
+        }
     })
 }
+
+/* CONTINUE HERE, Transforming API Data */
+function parseCurrentWeather ({current_weather, data}) {} 
+// function parseDailyWeather (data) {}
+// function parseHourlyWeather (data) {}
