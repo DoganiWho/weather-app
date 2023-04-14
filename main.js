@@ -2,8 +2,6 @@ import './style.css';
 import { getWeather } from "./weather.js";
 import { ICON_MAP } from "./iconMap.js";
 
-/* TODO: get current location data*/
-
 navigator.geolocation.getCurrentPosition(positionSuccess, positionError) 
 
 function positionSuccess({ coords }) {
@@ -24,9 +22,6 @@ function positionError() {
         'There was an error getting your current location. Please allow us to use your location and refresh the page.'
     )
 }
-
-
-
 
 function renderWeather({ current, daily, hourly }) {
     renderCurrentWeather(current);
@@ -70,7 +65,6 @@ function renderDailyWeather(daily) {
         dailySection.append(element)
     })
 }
-
 
 const HOUR_FORMATTER = Intl.DateTimeFormat(undefined, { hour: "numeric" });
 
