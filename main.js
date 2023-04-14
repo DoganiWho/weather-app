@@ -1,11 +1,32 @@
-// import './style.css';
-import { getWeather } from "./weather";
-import { ICON_MAP } from "./iconMap";
+import './style.css';
+import { getWeather } from "./weather.js";
+import { ICON_MAP } from "./iconMap.js";
 
-getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone).then(renderWeather).catch(e => {
-    console.error(e) 
-    alert("Could not render weather")
-});
+/* TODO: get current location data*/
+
+navigator.geolocation.getCurrentPosition(positionSuccess, positionError) 
+
+function positionSuccess({ coords }) {
+    getWeather(
+        coords.latitude,
+        coords.longitude,
+        Intl.DateTimeFormat().resolvedOptions().timeZone
+    )
+        .then(renderWeather)
+        .catch(e => {
+            console.error(e) 
+            alert("Could not render weather")
+        });
+}
+
+function positionError() {
+    alert(
+        'There was an error getting your current location. Please allow us to use your location and refresh the page.'
+    )
+}
+
+
+
 
 function renderWeather({ current, daily, hourly }) {
     renderCurrentWeather(current);
@@ -19,7 +40,7 @@ function setValue( selector, value, {parent = document} = {}) {
 }
 
 function getIconURL(iconCode) {
-    return `icons/${ICON_MAP.get(iconCode)}.svg`
+    return `./public/icons/${ICON_MAP.get(iconCode)}.svg`
 }
 
 const currentIcon = document.querySelector('[data-current-icon]');
